@@ -21,4 +21,14 @@ function randomizeInt (min, max) {
   return alert(Math.floor(randomInt));
 }
 
-randomizeInt(2, 12.3);
+let text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut a provident cum fuga. Accusantium aut perspiciatis temporibus ipsam, rem, error porro, deserunt ratione rerum ab quod veritatis. Incidunt, molestiae eos?';
+
+function checkLengthText (text, max) {
+  let isLongText = true;
+
+  return text.length < max ? alert(isLongText = true) : alert(isLongText = false);
+}
+
+randomizeInt(2, 2.3);
+
+checkLengthText(text, 140)
