@@ -1,7 +1,7 @@
 function randomizeInt (min, max) {
 
   if (min < 0 || max < 0) {
-    return alert('Оба числа должны быть больше либо равным нулю');
+    return ('Оба числа должны быть больше либо равным нулю');
   }
   //Или можно каждое число приравнять к его абсолютному значению?
 
@@ -9,26 +9,26 @@ function randomizeInt (min, max) {
   max = Math.round(max);
 
   if (min > max) {
-    let x = min;
+    const X = min;
     min = max;
-    max = x;
+    max = X;
   } else if (min === max) {
     max++;
   }
 
   //Источник кода: https://learn.javascript.ru/task/random-int-min-max
-  let randomInt = min + Math.random() * (max + 1 - min);
-  return alert(Math.floor(randomInt));
+  const randomInt = min + Math.random() * (max + 1 - min);
+  return (Math.floor(randomInt));
 }
 
-let text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut a provident cum fuga. Accusantium aut perspiciatis temporibus ipsam, rem, error porro, deserunt ratione rerum ab quod veritatis. Incidunt, molestiae eos?';
+const TEXT = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut a provident cum fuga. Accusantium aut perspiciatis temporibus ipsam, rem, error porro, deserunt ratione rerum ab quod veritatis. Incidunt, molestiae eos?';
 
 function checkLengthText (text, max) {
   let isLongText = true;
-
-  return text.length <= max ? alert(isLongText = true) : alert(isLongText = false);
+  // alert(isLongText);
+  return text.length > max ?  isLongText = false :  isLongText = true;// error  'isLongText' is assigned a value but never used  no-unused-vars
 }
 
 randomizeInt(2, 2.3);
 
-checkLengthText(text, 140)
+checkLengthText(TEXT, 140);
