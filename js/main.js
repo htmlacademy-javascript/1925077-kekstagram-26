@@ -26,7 +26,7 @@ let text = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut a provi
 function checkLengthText (text, max) {
   let isLongText = true;
 
-  return text.length < max ? alert(isLongText = true) : alert(isLongText = false);
+  return text.length <= max ? alert(isLongText = true) : alert(isLongText = false);
 }
 
 randomizeInt(2, 2.3);
