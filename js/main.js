@@ -1,7 +1,5 @@
-// 'use strict'; // Нужна ли сейчас эта директива?
-
 //Функция, возвращающая случайное целое число из переданного диапазона включительно
-function randomizeInt (min, max) {
+function getRandomInt (min=2, max=3) {
 
   if (min < 0 || max < 0) {
     return ('Оба числа должны быть больше либо равным нулю');
@@ -24,12 +22,12 @@ function randomizeInt (min, max) {
   return (Math.floor(randomInt));
 }
 
-randomizeInt(2, 2.3);
+getRandomInt(2, 2.3);
 
 const TEXT = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut a provident cum fuga. Accusantium aut perspiciatis temporibus ipsam, rem, error porro, deserunt ratione rerum ab quod veritatis. Incidunt, molestiae eos?';
 
 //Функция для проверки максимальной длины строки. Будет использоваться для проверки длины введённого комментария
-function checkLengthText(text, max) {
+function checkLengthText(text='hello', max=140) {
   let isLongText = true;
   // return text.length > max ? isLongText = false : isLongText = true;//errors: Return statement should not contain assignment   no-return-assign | 'isLongText' is assigned a value but never used  no-unused-vars
   if (text.length > max) {
