@@ -1,3 +1,4 @@
+//Функция, возвращающая случайное целое число из переданного диапазона включительно
 function randomizeInt (min, max) {
 
   if (min < 0 || max < 0) {
@@ -21,14 +22,21 @@ function randomizeInt (min, max) {
   return (Math.floor(randomInt));
 }
 
+randomizeInt(2, 2.3);
+
 const TEXT = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut a provident cum fuga. Accusantium aut perspiciatis temporibus ipsam, rem, error porro, deserunt ratione rerum ab quod veritatis. Incidunt, molestiae eos?';
 
-function checkLengthText (text, max) {
+//Функция для проверки максимальной длины строки. Будет использоваться для проверки длины введённого комментария
+function checkLengthText(text, max) {
   let isLongText = true;
-  // alert(isLongText);
-  return text.length > max ?  isLongText = false :  isLongText = true;// error  'isLongText' is assigned a value but never used  no-unused-vars
-}
+  // return text.length > max ? isLongText = false : isLongText = true;//errors: Return statement should not contain assignment   no-return-assign | 'isLongText' is assigned a value but never used  no-unused-vars
+  if (text.length > max) {
+    isLongText = false;
+    return isLongText;
+  }
 
-randomizeInt(2, 2.3);
+  isLongText = true;
+  return isLongText;
+}
 
 checkLengthText(TEXT, 140);
