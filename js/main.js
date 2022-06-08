@@ -8,11 +8,6 @@ const getRandomOnlyPositiveInt = (min=2, max=3) => {
 
   if (Math.round(min) === Math.round(max)) {
     randomInt = min + Math.random() * (max + 1 - min);
-    return Math.round(randomInt);
-  }
-
-  if (min > max) {
-    randomInt = max + Math.random() * (min - max);
     return (Math.round(randomInt));
   }
 
@@ -20,7 +15,7 @@ const getRandomOnlyPositiveInt = (min=2, max=3) => {
   return (Math.round(randomInt));
 };
 
-getRandomOnlyPositiveInt(3, 2.2);
+getRandomOnlyPositiveInt(7, 4.8);
 
 const TEXT = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut a provident cum fuga. Accusantium aut perspiciatis temporibus ipsam, rem, error porro, deserunt ratione rerum ab quod veritatis. Incidunt, molestiae eos?';
 
