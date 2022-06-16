@@ -93,22 +93,26 @@ const getUserName = () => {
 
 getUserName();
 
+//Тасование Фишера — Йетса: https://learn.javascript.ru/task/shuffle
+const shuffle = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+};
+
 //Возвращает сгенерированные комментарии (массив объектов)
 const getComments = () => {
   const iterations = getRandomOnlyPositiveInt(0, 4);//комментариев может быть от 0 до 4
   if (iterations === 0) {
     return undefined;
   }
-  const ids = [];//массив идентификаторов по порядку
+  const ids = [];// Массив идентификаторов по порядку
   for (let i = 0; i < iterations; i++) {
     ids[i] = i + 1;
   }
 
-  // Тасование Фишера — Йетса
-  for (let i = 0; i < iterations; i++) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [ids[i], ids[j]] = [ids[j], ids[i]];
-  }
+  shuffle(ids);// Тасуем массив по беспорядку
 
   const comments = [];
   for (let i = 0; i < iterations; i++) {
@@ -132,10 +136,7 @@ const getIdentifiers = () => {
   for (let i = 0; i < AMOUNT_OF_USERS; i++) {
     identifiers[i] = i + 1;
   }
-  for (let i = 0; i < AMOUNT_OF_USERS; i++) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [identifiers[i], identifiers[j]] = [identifiers[j], identifiers[i]];
-  }
+  shuffle(identifiers);
   return identifiers;
 };
 
