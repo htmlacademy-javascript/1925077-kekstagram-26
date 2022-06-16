@@ -117,12 +117,13 @@ getIdentifiers();
 
 const getDescriptionsOfPhoto = () => {
   const ids = getIdentifiers();
-  const urlNumber = getIdentifiers();
+  const urlNumbers = getIdentifiers();
+  console.log(urlNumbers);
   const descriptions = [];
   for (let i = 0; i < AMOUNT_OF_USERS; i++) {
     const description = {
       id: ids[i],
-      url: `photos/${urlNumber[i]}.jpg`,
+      url: `photos/${urlNumbers[i]}.jpg`,
       description: DESCRIPTIONS[Math.floor(Math.random() * DESCRIPTIONS.length)],
       likes: getRandomOnlyPositiveInt(15, 200),
       comments: getComments()
