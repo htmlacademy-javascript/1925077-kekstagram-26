@@ -1,17 +1,17 @@
 //Функция, возвращающая случайное целое число из переданного диапазона включительно
 const getRandomOnlyPositiveInt = (min=2, max=3) => {
-  let randomInt;
+  // const randomInt;
 
   if (min < 0 || max < 0) {
     return ('Оба числа должны быть больше либо равным нулю');
   }
 
-  if (Math.round(min) === Math.round(max)) {
-    randomInt = min + Math.random() * (max + 1 - min);
-    return (Math.round(randomInt));
-  }
+  // if (Math.round(min) === Math.round(max)) {
+  //   randomInt = min + Math.random() * (max + 1 - min);
+  //   return (Math.round(randomInt));
+  // }
 
-  randomInt = min + Math.random() * (max - min);
+  const randomInt = min + Math.random() * (max - min);
   return (Math.round(randomInt));
 };
 
@@ -23,3 +23,17 @@ const TEXT = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut a pro
 const checkLengthText = (text = 'hello', max = 140) => text.length <= max;
 
 checkLengthText(TEXT, 140);
+
+//sd
+// const whatEver = {
+//   id: 1,
+//   url: 'photos/{{i}}.jpg',
+//   description: '',
+//   likes: 0,
+//   comments: '',
+// };
+
+// const descriptions = [
+//   ''
+// ];
+
