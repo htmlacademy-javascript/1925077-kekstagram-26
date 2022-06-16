@@ -1,44 +1,4 @@
-//Функция, возвращающая случайное целое число из переданного диапазона включительно
-const getRandomOnlyPositiveInt = (min=2, max=3) => {
-  // const randomInt;
-
-  if (min < 0 || max < 0) {
-    return ('Оба числа должны быть больше либо равным нулю');
-  }
-
-  // if (Math.round(min) === Math.round(max)) {
-  //   randomInt = min + Math.random() * (max + 1 - min);
-  //   return (Math.round(randomInt));
-  // }
-
-  const randomInt = min + Math.random() * (max - min);
-  return (Math.round(randomInt));
-};
-
-getRandomOnlyPositiveInt(7, 4.8);
-
 const TEXT = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut a provident cum fuga. Accusantium aut perspiciatis temporibus ipsam, rem, error porro, deserunt ratione rerum ab quod veritatis. Incidunt, molestiae eos?';
-
-//Функция для проверки максимальной длины строки. Будет использоваться для проверки длины введённого комментария
-const checkLengthText = (text = 'hello', max = 140) => text.length <= max;
-
-checkLengthText(TEXT, 140);
-
-//sd
-// const whatEver = {
-//   id: 1,
-//   url: 'photos/{{i}}.jpg',
-//   description: '',
-//   likes: 0,
-//   comments: [
-//   {
-//        id: 1,
-//        avatar: 'xxxxxxxxx',
-//        message: ['asdf', 'sdfasd'],
-//        name: 'asdf'
-//    }
-// ]
-// };
 
 const DESCRIPTIONS = [
   'Таким образом реализация намеченных плановых заданий позволяет оценить значение новых предложений.',
@@ -69,7 +29,20 @@ const AMOUNT_OF_USERS = 25;
 
 const NAMES = ['Дамир Быков', 'Елена Дроздова', 'Кирилл Гордеев', 'Алёна Малахова', 'Александра Кузина', 'Руслан Исаев', 'Полина Герасимова', 'Аделина Панкратова', 'Ирина Новикова', 'Станислав Федоров', 'Michael Pierce', 'William Diaz', 'Clarence Sims', 'Mary Glover', 'Ashley Munoz', 'Joshua Smith', 'David Walker', 'William Ford', 'Raymond Kelly'];
 
-console.log(DESCRIPTIONS, MESSAGES, NAMES, AMOUNT_OF_USERS);
+//Функция, возвращающая случайное целое число из переданного диапазона включительно
+const getRandomOnlyPositiveInt = (min=2, max=3) => {
+  if (min < 0 || max < 0) {
+    return ('Оба числа должны быть больше либо равным нулю');
+  }
+
+  const randomInt = min + Math.random() * (max - min);
+  return (Math.round(randomInt));
+};
+
+//Функция для проверки максимальной длины строки. Будет использоваться для проверки длины введённого комментария
+const checkLengthText = (text = 'hello', max = 140) => text.length <= max;
+
+checkLengthText(TEXT, 140);
 
 //Формирует текст комментария из 1 или 2 предложений массива MESSAGES
 const getTextofComment = () => {
@@ -93,7 +66,7 @@ const getUserName = () => {
 
 getUserName();
 
-//Тасование Фишера — Йетса: https://learn.javascript.ru/task/shuffle
+// Тасование Фишера — Йетса: https://learn.javascript.ru/task/shuffle
 const shuffle = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -141,3 +114,23 @@ const getIdentifiers = () => {
 };
 
 getIdentifiers();
+
+const getDescriptionsOfPhoto = () => {
+  const ids = getIdentifiers();
+  const urlNumber = getIdentifiers();
+  const descriptions = [];
+  for (let i = 0; i < AMOUNT_OF_USERS; i++) {
+    const description = {
+      id: ids[i],
+      url: `photos/${urlNumber[i]}.jpg`,
+      description: DESCRIPTIONS[Math.floor(Math.random() * DESCRIPTIONS.length)],
+      likes: getRandomOnlyPositiveInt(15, 200),
+      comments: getComments()
+    };
+    descriptions[i] = description;
+  }
+
+  return descriptions;
+};
+
+getDescriptionsOfPhoto();
