@@ -59,10 +59,10 @@ const DESCRIPTIONS = [
 const MESSAGES = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
-  'Когда вы делаете фотографию, хорошо бы убирать палец из кадра.В конце концов это просто непрофессионально.',
+  'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
   'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
-  'Лица у людей на фотке перекошены, как будто их избивают.Как можно было поймать такой неудачный момент ? !'
+  'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент ? !'
 ];
 
 const AMOUNT_OF_USERS = 25;
@@ -82,14 +82,23 @@ console.log(DESCRIPTIONS, MESSAGES, NAMES, AMOUNT_OF_USERS);
 const getTextofComment = () => {
   const iterations = getRandomOnlyPositiveInt(1, 2);
   const messages = [];
-  let message = '';
   //цикл пройдет 1 или 2 итерации, чтобы добавить в массив 1 или 2 предложения
   for (let i = 0; i < iterations; i++) {
     const rand = Math.floor(Math.random() * MESSAGES.length);
     messages[i] = MESSAGES[rand];
   }
-  message = messages.join(' ');
-  return message;
+  return messages.join(' ');
 };
 
 getTextofComment();
+// console.log(getTextofComment());
+
+//Возвращает случайное имя из массива NAMES
+const getUserName = () => {
+  const rand = Math.floor(Math.random() * NAMES.length);
+  return NAMES[rand];
+};
+
+getUserName();
+// console.log(getUserName());
+
