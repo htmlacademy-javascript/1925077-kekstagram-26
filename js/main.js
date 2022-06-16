@@ -118,7 +118,6 @@ getIdentifiers();
 const getDescriptionsOfPhoto = () => {
   const ids = getIdentifiers();
   const urlNumbers = getIdentifiers();
-  console.log(urlNumbers);
   const descriptions = [];
   for (let i = 0; i < AMOUNT_OF_USERS; i++) {
     const description = {
