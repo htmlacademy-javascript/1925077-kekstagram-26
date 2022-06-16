@@ -71,13 +71,6 @@ const NAMES = ['Дамир Быков', 'Елена Дроздова', 'Кири
 
 console.log(DESCRIPTIONS, MESSAGES, NAMES, AMOUNT_OF_USERS);
 
-// const createComment = () => {
-//   return {
-//     id: 0,
-//     text: 'sd'.
-//   };
-// };
-
 //Формирует текст комментария из 1 или 2 предложений массива MESSAGES
 const getTextofComment = () => {
   const iterations = getRandomOnlyPositiveInt(1, 2);
@@ -91,7 +84,6 @@ const getTextofComment = () => {
 };
 
 getTextofComment();
-// console.log(getTextofComment());
 
 //Возвращает случайное имя из массива NAMES
 const getUserName = () => {
@@ -100,5 +92,37 @@ const getUserName = () => {
 };
 
 getUserName();
-// console.log(getUserName());
 
+//Возвращает сгенерированные комментарии (массив объектов)
+const getComments = () => {
+  const iterations = getRandomOnlyPositiveInt(0, 4);//комментариев может быть от 0 до 4
+  if (iterations === 0) {
+    return undefined;
+  }
+  const ids = [];//массив идентификаторов по порядку
+  for (let i = 0; i < iterations; i++) {
+    ids[i] = i + 1;
+  }
+
+  // Тасование Фишера — Йетса
+  for (let i = 0; i < iterations; i++) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [ids[i], ids[j]] = [ids[j], ids[i]];
+  }
+
+  // const rand = Math.floor(Math.random() * ids.length);//
+  const comments = [];
+  for (let i = 0; i < iterations; i++) {
+    const comment = {
+      id: ids[i],
+      avatar: `img/avatar-${getRandomOnlyPositiveInt(1, 6)}.svg`,
+      message: getTextofComment(),
+      name: getUserName()
+    };
+    comments[i] = comment;
+  }
+
+  return comments;
+};
+
+getComments();
