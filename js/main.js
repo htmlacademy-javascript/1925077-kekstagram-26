@@ -30,10 +30,17 @@ checkLengthText(TEXT, 140);
 //   url: 'photos/{{i}}.jpg',
 //   description: '',
 //   likes: 0,
-//   comments: '',
+//   comments: [
+//   {
+//        id: 1,
+//        avatar: 'xxxxxxxxx',
+//        message: ['asdf', 'sdfasd'],
+//        name: 'asdf'
+//    }
+// ]
 // };
 
-const descriptions = [
+const DESCRIPTIONS = [
   'Таким образом реализация намеченных плановых заданий позволяет оценить значение новых предложений.',
   'Разнообразный и богатый опыт консультация с широким активом обеспечивает широкому кругу.',
   'Если у вас есть какие то интересные предложения, обращайтесь! Студия Web-Boss всегда готова решить любую задачу.',
@@ -49,15 +56,40 @@ const descriptions = [
   'I enjoy kexing'
 ];
 
-const messages = [
+const MESSAGES = [
   'Всё отлично!',
-  'В целом всё неплохо.Но не всё.',
+  'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра.В конце концов это просто непрофессионально.',
   'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают.Как можно было поймать такой неудачный момент ? !'
 ];
 
-const names = ['Дамир Быков', 'Елена Дроздова', 'Кирилл Гордеев', 'Алёна Малахова', 'Александра Кузина', 'Руслан Исаев', 'Полина Герасимова', 'Аделина Панкратова', 'Ирина Новикова', 'Станислав Федоров', 'Michael Pierce', 'William Diaz', 'Clarence Sims', 'Mary Glover', 'Ashley Munoz', 'Joshua Smith', 'David Walker', 'William Ford', 'Raymond Kelly'];
+const AMOUNT_OF_USERS = 25;
 
-console.log(descriptions, messages, names);
+const NAMES = ['Дамир Быков', 'Елена Дроздова', 'Кирилл Гордеев', 'Алёна Малахова', 'Александра Кузина', 'Руслан Исаев', 'Полина Герасимова', 'Аделина Панкратова', 'Ирина Новикова', 'Станислав Федоров', 'Michael Pierce', 'William Diaz', 'Clarence Sims', 'Mary Glover', 'Ashley Munoz', 'Joshua Smith', 'David Walker', 'William Ford', 'Raymond Kelly'];
+
+console.log(DESCRIPTIONS, MESSAGES, NAMES, AMOUNT_OF_USERS);
+
+// const createComment = () => {
+//   return {
+//     id: 0,
+//     text: 'sd'.
+//   };
+// };
+
+//Формирует текст комментария из 1 или 2 предложений массива MESSAGES
+const getTextofComment = () => {
+  const iterations = getRandomOnlyPositiveInt(1, 2);
+  const messages = [];
+  let message = '';
+  //цикл пройдет 1 или 2 итерации, чтобы добавить в массив 1 или 2 предложения
+  for (let i = 0; i < iterations; i++) {
+    const rand = Math.floor(Math.random() * MESSAGES.length);
+    messages[i] = MESSAGES[rand];
+  }
+  message = messages.join(' ');
+  return message;
+};
+
+getTextofComment();
