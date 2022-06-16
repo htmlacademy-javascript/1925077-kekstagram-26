@@ -110,7 +110,6 @@ const getComments = () => {
     [ids[i], ids[j]] = [ids[j], ids[i]];
   }
 
-  // const rand = Math.floor(Math.random() * ids.length);//
   const comments = [];
   for (let i = 0; i < iterations; i++) {
     const comment = {
@@ -126,3 +125,18 @@ const getComments = () => {
 };
 
 getComments();
+
+// Возвращает массив чисел от 1 до AMOUNT_OF_USERS в случайном порядке
+const getIdentifiers = () => {
+  const identifiers = [];
+  for (let i = 0; i < AMOUNT_OF_USERS; i++) {
+    identifiers[i] = i + 1;
+  }
+  for (let i = 0; i < AMOUNT_OF_USERS; i++) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [identifiers[i], identifiers[j]] = [identifiers[j], identifiers[i]];
+  }
+  return identifiers;
+};
+
+getIdentifiers();
