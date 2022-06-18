@@ -3,4 +3,4 @@ import {checkLengthText, TEXT as TEXT_FOR_CHECK_LENGTH} from './check-length-tex
 
 checkLengthText(TEXT_FOR_CHECK_LENGTH, 140);
 
-console.log(getDescriptionsOfPhoto());
+getDescriptionsOfPhoto();
