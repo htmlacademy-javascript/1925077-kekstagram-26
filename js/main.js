@@ -1,6 +1,6 @@
 import {getDescriptionsOfPhoto} from './get-descriptions-of-photo.js';
-import {checkLengthText, TEXT} from './check-length-text.js';
+import {checkLengthText, TEXT as TEXT_FOR_CHECK_LENGTH} from './check-length-text.js';
 
-checkLengthText(TEXT, 140);
+checkLengthText(TEXT_FOR_CHECK_LENGTH, 140);
 
-getDescriptionsOfPhoto();
+console.log(getDescriptionsOfPhoto());
