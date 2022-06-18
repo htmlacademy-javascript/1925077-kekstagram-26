@@ -1,3 +1,5 @@
+import {getRandomOnlyPositiveInt} from './get-random-only-positive-int.js';
+
 const TEXT = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut a provident cum fuga. Accusantium aut perspiciatis temporibus ipsam, rem, error porro, deserunt ratione rerum ab quod veritatis. Incidunt, molestiae eos?';
 
 const DESCRIPTIONS = [
@@ -29,16 +31,6 @@ const AMOUNT_OF_USERS = 25;
 
 const NAMES = ['Дамир Быков', 'Елена Дроздова', 'Кирилл Гордеев', 'Алёна Малахова', 'Александра Кузина', 'Руслан Исаев', 'Полина Герасимова', 'Аделина Панкратова', 'Ирина Новикова', 'Станислав Федоров', 'Michael Pierce', 'William Diaz', 'Clarence Sims', 'Mary Glover', 'Ashley Munoz', 'Joshua Smith', 'David Walker', 'William Ford', 'Raymond Kelly'];
 
-//Функция, возвращающая случайное целое число из переданного диапазона включительно
-const getRandomOnlyPositiveInt = (min=2, max=3) => {
-  if (min < 0 || max < 0) {
-    return ('Оба числа должны быть больше либо равным нулю');
-  }
-
-  const randomInt = min + Math.random() * (max - min);
-  return (Math.round(randomInt));
-};
-
 //Функция для проверки максимальной длины строки. Будет использоваться для проверки длины введённого комментария
 const checkLengthText = (text = 'hello', max = 140) => text.length <= max;
 
@@ -46,10 +38,10 @@ checkLengthText(TEXT, 140);
 
 //Формирует текст комментария из 1 или 2 предложений массива MESSAGES
 const getTextofComment = () => {
-  const iterations = getRandomOnlyPositiveInt(1, 2);
+  const amountOfIterations = getRandomOnlyPositiveInt(1, 2);
   const messages = [];
   //цикл пройдет 1 или 2 итерации, чтобы добавить в массив 1 или 2 предложения
-  for (let i = 0; i < iterations; i++) {
+  for (let i = 0; i < amountOfIterations; i++) {
     const rand = Math.floor(Math.random() * MESSAGES.length);
     messages[i] = MESSAGES[rand];
   }
@@ -133,4 +125,4 @@ const getDescriptionsOfPhoto = () => {
   return descriptions;
 };
 
-getDescriptionsOfPhoto();
+console.log(getDescriptionsOfPhoto());
