@@ -4,4 +4,6 @@ import {checkLengthText, TEXT as TEXT_FOR_CHECK_LENGTH, MAX_LENGTH} from './chec
 // checkLengthText(TEXT_FOR_CHECK_LENGTH, MAX_LENGTH);
 console.log(checkLengthText(TEXT_FOR_CHECK_LENGTH, MAX_LENGTH));
 
-getDescriptionsOfPhoto();
+// getDescriptionsOfPhoto();
+console.log(getDescriptionsOfPhoto());
+

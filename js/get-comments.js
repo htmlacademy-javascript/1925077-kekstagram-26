@@ -32,28 +32,29 @@ const getUserName = () => {
 };
 
 //Возвращает сгенерированные комментарии (массив объектов)
-export const getComments = () => {
+const getComments = () => {
   const amountOfIterations = getRandomOnlyPositiveInt(0, 4);//комментариев может быть от 0 до 4
-  if (amountOfIterations === 0) {
-    return undefined;
-  }
-  const ids = [];// Массив идентификаторов по порядку
-  for (let i = 0; i < amountOfIterations; i++) {
-    ids[i] = i + 1;
-  }
+  if (amountOfIterations > 0) {
+    const ids = [];// Массив идентификаторов по порядку
+    for (let i = 0; i < amountOfIterations; i++) {
+      ids[i] = i + 1;
+    }
 
-  shuffle(ids);// Тасуем массив по беспорядку
+    shuffle(ids);// Тасуем массив по беспорядку
 
-  const comments = [];
-  for (let i = 0; i < amountOfIterations; i++) {
-    const comment = {
-      id: ids[i],
-      avatar: `img/avatar-${getRandomOnlyPositiveInt(1, 6)}.svg`,
-      message: getTextofComment(),
-      name: getUserName()
-    };
-    comments[i] = comment;
+    const comments = [];
+    for (let i = 0; i < amountOfIterations; i++) {
+      const comment = {
+        id: ids[i],
+        avatar: `img/avatar-${getRandomOnlyPositiveInt(1, 6)}.svg`,
+        message: getTextofComment(),
+        name: getUserName()
+      };
+      comments[i] = comment;
+    }
+
+    return comments;
   }
-
-  return comments;
 };
+
+export {getComments};
