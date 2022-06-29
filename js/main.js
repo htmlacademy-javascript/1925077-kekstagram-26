@@ -2,6 +2,4 @@ import {checkLengthText, TEXT as TEXT_FOR_CHECK_LENGTH, MAX_LENGTH} from './chec
 import './render-miniatures.js';
 
 // checkLengthText(TEXT_FOR_CHECK_LENGTH, MAX_LENGTH);
-console.log(checkLengthText(TEXT_FOR_CHECK_LENGTH, MAX_LENGTH));
-
-// getDescriptionsOfPhoto();
+checkLengthText(TEXT_FOR_CHECK_LENGTH, MAX_LENGTH);
