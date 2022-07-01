@@ -19,7 +19,11 @@ bigPictureTemplate.querySelector('.social__caption').textContent = photosWithDat
 bigPictureTemplate.querySelector('.likes-count').textContent = photosWithData[idOfPhoto].likes;
 
 if (photosWithData[idOfPhoto].comments) {
-  bigPictureTemplate.querySelector('.comments-count').textContent = photosWithData[idOfPhoto].comments.length;
+  const howManyComments = photosWithData[idOfPhoto].comments.length;
+  bigPictureTemplate.querySelector('.comments-count').textContent = howManyComments;
+  if (howManyComments <= 5) {
+    bigPictureTemplate.querySelector('.social__comment-count').textContent = `${howManyComments} из ${howManyComments} комментариев`;
+  }
 } else {
   bigPictureTemplate.querySelector('.social__comment-count').textContent = 'Прокомментируйте первым!';
 }
