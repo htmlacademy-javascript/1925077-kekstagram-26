@@ -1,26 +1,24 @@
-import {getDescriptionsOfPhoto} from './get-descriptions-of-photo.js';
+import {getphotosWithData} from './get-photos-with-data.js';
 
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const picturesContainer = document.querySelector('.pictures');
-const descriptions = getDescriptionsOfPhoto();
+const photosWithData = getphotosWithData();
 const fragment = document.createDocumentFragment();
 
-descriptions.forEach((miniature)=>{
+photosWithData.forEach((aPhotoWithData)=>{
   const pictureElement = pictureTemplate.cloneNode(true);
-  pictureElement.querySelector('.picture__img').src = miniature.url;
+  pictureElement.querySelector('.picture__img').src = aPhotoWithData.url;
 
-  if (miniature.comments) {
-    let comments = 0;
-    for (let i = 1; i <= miniature.comments.length; i++) {
-      comments+=i;
-    }
-    pictureElement.querySelector('.picture__comments').textContent = comments;
+  if (aPhotoWithData.comments) {
+    pictureElement.querySelector('.picture__comments').textContent = aPhotoWithData.comments.length;
   } else {
     pictureElement.querySelector('.picture__comments').textContent = 0;
   }
 
-  pictureElement.querySelector('.picture__likes').textContent = miniature.likes;
+  pictureElement.querySelector('.picture__likes').textContent = aPhotoWithData.likes;
   fragment.append(pictureElement);
 });
 
 picturesContainer.append(fragment);
+
+export {photosWithData};
