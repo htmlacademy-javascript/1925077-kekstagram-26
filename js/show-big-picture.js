@@ -1,31 +1,35 @@
 import {photosWithData} from './render-miniatures.js';
 
-const idOfPhoto = 0;
+document.querySelector('body').classList.add('modal-open');
+
+const indexOfPhoto = 0;
 
 const bigPicture = document.querySelector('.big-picture');
 bigPicture.classList.remove('hidden');
 
-const listofCommentsTemplate = bigPicture.querySelector('.social__comments');
+const listOfCommentsElement = bigPicture.querySelector('.social__comments');
 
+//
 /////////////////////////////////////////////////////////////////////////////
 bigPicture.querySelector('.social__comment-count').classList.add('hidden');//
-listofCommentsTemplate.classList.add('hidden');//      <=========      //////
+listOfCommentsElement.classList.add('hidden');//      <=========      //////
 /////////          временное скрытие          ///////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
+//
 
 const commentTemplate = bigPicture.querySelector('.social__comment');
-const comments = photosWithData[idOfPhoto].comments;
+const comments = photosWithData[indexOfPhoto].comments;
 const fragment = document.createDocumentFragment();
 const closingButton = bigPicture.querySelector('.big-picture__cancel');
 
 
-bigPicture.querySelector('.js-full-img').src = photosWithData[idOfPhoto].url;
-bigPicture.querySelector('.js-full-img').alt = photosWithData[idOfPhoto].description;
-bigPicture.querySelector('.social__caption').textContent = photosWithData[idOfPhoto].description;
-bigPicture.querySelector('.likes-count').textContent = photosWithData[idOfPhoto].likes;
+bigPicture.querySelector('.js-full-img').src = photosWithData[indexOfPhoto].url;
+bigPicture.querySelector('.js-full-img').alt = photosWithData[indexOfPhoto].description;
+bigPicture.querySelector('.social__caption').textContent = photosWithData[indexOfPhoto].description;
+bigPicture.querySelector('.likes-count').textContent = photosWithData[indexOfPhoto].likes;
 
-if (photosWithData[idOfPhoto].comments) {
-  const howManyComments = photosWithData[idOfPhoto].comments.length;
+if (photosWithData[indexOfPhoto].comments) {
+  const howManyComments = photosWithData[indexOfPhoto].comments.length;
   bigPicture.querySelector('.comments-count').textContent = howManyComments;
   if (howManyComments <= 5) {
     bigPicture.querySelector('.social__comment-count').textContent = `${howManyComments} из ${howManyComments} комментариев`;
@@ -44,8 +48,16 @@ if (comments) {
   });
 }
 
-listofCommentsTemplate.append(fragment);
+listOfCommentsElement.append(fragment);
 
 closingButton.addEventListener('click', () => {
   bigPicture.classList.add('hidden');
+  document.querySelector('body').classList.remove('modal-open');
+}, {once: true});
+
+document.addEventListener('keydown', (evt) => {
+  if (evt.key === 'Escape') {
+    bigPicture.classList.add('hidden');
+    document.querySelector('body').classList.remove('modal-open');
+  }
 }, {once: true});
