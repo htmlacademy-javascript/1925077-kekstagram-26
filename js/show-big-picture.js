@@ -18,16 +18,26 @@ bigPictureTemplate.querySelector('.js-full-img').alt = photosWithData[idOfPhoto]
 bigPictureTemplate.querySelector('.social__caption').textContent = photosWithData[idOfPhoto].description;
 bigPictureTemplate.querySelector('.likes-count').textContent = photosWithData[idOfPhoto].likes;
 
+if (photosWithData[idOfPhoto].comments) {
+  bigPictureTemplate.querySelector('.comments-count').textContent = photosWithData[idOfPhoto].comments.length;
+} else {
+  bigPictureTemplate.querySelector('.social__comment-count').textContent = 'Прокомментируйте первым!';
+}
+
 // const fragment
 
-// listofCommentsTemplate.remove();//Удаление жестко отрисованных комментарев в разметке
-comments.forEach((comment) => {
-  const commentElement = commentTemplate.cloneNode(true);
-  commentElement.querySelector('.social__picture').src = comment.avatar;
-  commentElement.querySelector('.social__text').textContent = comment.message;
-  console.log(commentElement);
-  listofCommentsTemplate.append(commentElement);
-});
+// hardComments.remove();//Удаление жестко отрисованных комментарев в разметке
+
+if (comments) {
+  comments.forEach((comment) => {
+    const commentElement = commentTemplate.cloneNode(true);
+    commentElement.querySelector('.social__picture').src = comment.avatar;
+    commentElement.querySelector('.social__text').textContent = comment.message;
+    console.log(commentElement);
+    listofCommentsTemplate.append(commentElement);
+  });
+}
+
 
 // listofCommentsTemplate.append(fragment);
 
