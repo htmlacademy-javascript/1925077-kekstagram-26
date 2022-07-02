@@ -8,26 +8,16 @@ const bigPicture = document.querySelector('.big-picture');
 bigPicture.classList.remove('hidden');
 
 const listOfCommentsElement = bigPicture.querySelector('.social__comments');
-
-//
-/////////////////////////////////////////////////////////////////////////////
-bigPicture.querySelector('.social__comment-count').classList.add('hidden');//
-listOfCommentsElement.classList.add('hidden');//      <=========      //////
-/////////          временное скрытие          ///////////////////////////////
-/////////////////////////////////////////////////////////////////////////////
-//
-
 const commentTemplate = bigPicture.querySelector('.social__comment');
 const comments = photosWithData[indexOfPhoto].comments;
 const fragment = document.createDocumentFragment();
 const closingButton = bigPicture.querySelector('.big-picture__cancel');
 
-
+//                заполненение неколлекционными данными
 bigPicture.querySelector('.js-full-img').src = photosWithData[indexOfPhoto].url;
 bigPicture.querySelector('.js-full-img').alt = photosWithData[indexOfPhoto].description;
 bigPicture.querySelector('.social__caption').textContent = photosWithData[indexOfPhoto].description;
 bigPicture.querySelector('.likes-count').textContent = photosWithData[indexOfPhoto].likes;
-
 if (photosWithData[indexOfPhoto].comments) {
   const howManyComments = photosWithData[indexOfPhoto].comments.length;
   bigPicture.querySelector('.comments-count').textContent = howManyComments;
@@ -37,7 +27,10 @@ if (photosWithData[indexOfPhoto].comments) {
 } else {
   bigPicture.querySelector('.social__comment-count').textContent = 'Прокомментируйте первым!';
 }
+//////////////////////////////////////////////////////////////////////////////////////////////
 
+
+//                 заполнение комментариев
 if (comments) {
   comments.forEach((comment) => {
     const commentElement = commentTemplate.cloneNode(true);
@@ -47,9 +40,11 @@ if (comments) {
     fragment.append(commentElement);
   });
 }
+listOfCommentsElement.replaceChildren(fragment);
+//////////////////////////////////////////////////////////////////
 
-listOfCommentsElement.append(fragment);
 
+//                      закрыть окно с большим фото
 closingButton.addEventListener('click', () => {
   bigPicture.classList.add('hidden');
   document.querySelector('body').classList.remove('modal-open');
@@ -61,3 +56,14 @@ document.addEventListener('keydown', (evt) => {
     document.querySelector('body').classList.remove('modal-open');
   }
 }, {once: true});
+//////////////////////////////////////////////////////////////////
+
+
+//
+/////////////////////////////////////////////////////////////////////////////
+bigPicture.querySelector('.social__comment-count').classList.add('hidden');//
+listOfCommentsElement.classList.add('hidden');//      <=========      //////
+/////////          временное скрытие          ///////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
+//
+
