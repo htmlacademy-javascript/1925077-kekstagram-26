@@ -1,4 +1,4 @@
-document.querySelector('.big-picture').classList.add('hidden');
+// document.querySelector('.big-picture').classList.add('hidden');
 
 const formOverlayElement = document.querySelector('.img-upload__overlay');
 const formElement = document.querySelector('.img-upload__form');
