@@ -8,6 +8,7 @@ const fragment = document.createDocumentFragment();
 photosWithData.forEach((aPhotoWithData)=>{
   const pictureElement = pictureTemplate.cloneNode(true);
   pictureElement.querySelector('.picture__img').src = aPhotoWithData.url;
+  pictureElement.querySelector('.picture__img').id = aPhotoWithData.id;
 
   if (aPhotoWithData.comments) {
     pictureElement.querySelector('.picture__comments').textContent = aPhotoWithData.comments.length;
@@ -21,4 +22,4 @@ photosWithData.forEach((aPhotoWithData)=>{
 
 picturesContainer.append(fragment);
 
-export {photosWithData};
+export {photosWithData, picturesContainer};
