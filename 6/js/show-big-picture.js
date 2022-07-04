@@ -41,10 +41,10 @@ const pluckLinksElements = () => {
           if ((howManyComments) > 5) {
             bigPictureElement.querySelector('.social__comment-count').textContent = `5 из ${howManyComments} комментариев`;
           }
-          else if ((howManyComments) <= 5) {
+          else {
             bigPictureElement.querySelector('.social__comment-count').textContent = `${howManyComments} из ${howManyComments} комментариев`;
           }
-        } else /* if (photosWithData[i].comments === null) */ {
+        } else {
           bigPictureElement.querySelector('.social__comment-count').textContent = 'Прокомментируйте первым!';
         }
         //////////////////////////////////////////////////////////////////////////////////////////////
@@ -54,7 +54,7 @@ const pluckLinksElements = () => {
   };
 
   linksMiniImgContainer.addEventListener('click', (evt) => {
-    if (evt.target.classList.contains('picture__img')) {
+    if (evt.target.classList.contains('js-picture__img')) {
       onLinkMiniImgClick(+(evt.target.getAttribute('id')));
     }
   });
