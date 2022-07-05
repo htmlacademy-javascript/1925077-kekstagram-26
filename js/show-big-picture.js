@@ -56,6 +56,7 @@ const pluckLinksElements = () => {
   linksMiniImgContainer.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('js-picture__img')) {
       onLinkMiniImgClick(+(evt.target.getAttribute('id')));
+      document.querySelector('body').classList.add('modal-open');
     }
   });
 };
