@@ -30,22 +30,22 @@ const getIdentifiers = () => {
   return identifiers;
 };
 
-const getDescriptionsOfPhoto = () => {
+const getphotosWithData = () => {
   const ids = getIdentifiers();
   const urlNumbers = getIdentifiers();
-  const descriptions = [];
+  const photosWithData = [];
   for (let i = 0; i < AMOUNT_OF_USERS; i++) {
-    const description = {
+    const aPhotoWithData = {
       id: ids[i],
       url: `photos/${urlNumbers[i]}.jpg`,
       description: DESCRIPTIONS[Math.floor(Math.random() * DESCRIPTIONS.length)],
       likes: getRandomOnlyPositiveInt(15, 200),
       comments: getComments()
     };
-    descriptions[i] = description;
+    photosWithData[i] = aPhotoWithData;
   }
 
-  return descriptions;
+  return photosWithData;
 };
 
-export {getDescriptionsOfPhoto};
+export {getphotosWithData};

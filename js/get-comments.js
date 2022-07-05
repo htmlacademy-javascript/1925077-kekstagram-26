@@ -33,7 +33,7 @@ const getUserName = () => {
 
 //Возвращает сгенерированные комментарии (массив объектов)
 const getComments = () => {
-  const amountOfIterations = getRandomOnlyPositiveInt(0, 4);//комментариев может быть от 0 до 4
+  const amountOfIterations = getRandomOnlyPositiveInt(0, 9);//комментариев может быть от 0 до 9
   if (amountOfIterations > 0) {
     const ids = [];// Массив идентификаторов по порядку
     for (let i = 0; i < amountOfIterations; i++) {
