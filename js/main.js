@@ -3,5 +3,6 @@ import './render-miniatures.js';
 import './show-big-picture.js';
 import './edit-picture.js';
 import './upload-picture.js';
+import './inputs-validation.js';
 
 checkLengthText(TEXT_FOR_CHECK_LENGTH, MAX_LENGTH);

@@ -134,10 +134,11 @@
                 <!-- Добавление хэш-тегов и комментария к изображению -->
                 <!-- Добавление хэш-тегов и комментария к изображению -->
                 <fieldset class="img-upload__text text">
-                  <div class="img-upload__field-wrapper">
-                    <input class="text__hashtags" name="hashtags" placeholder="#ХэшТег" type="text" minlength="2">
+                  <div class="img-upload__field-wrapper  form__item">
+                    <input class="text__hashtags" name="hashtags" placeholder="#ХэшТег" minlength="2"
+                    data-pristine-minlength-message="Минимальная длина хэштэга 2 символа">
                   </div>
-                  <div class="img-upload__field-wrapper">
+                  <div class="img-upload__field-wrapper  form__item">
                     <textarea class="text__description" name="description" placeholder="Ваш комментарий..." maxlength="140"></textarea>
                   </div>
                 </fieldset>
