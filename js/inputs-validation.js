@@ -20,6 +20,7 @@ const pristine = new Pristine(formElement, {
 
 
 // const regexHashtag = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
+// /^#[A-Za-zA-Яа-яЁё0-9]{1,19}$/
 // const value = 'asdf asdf asf jk';
 
 const checkLongOfComment = (value) => value.length < MAX_LENGTH_OF_COMMENT;
@@ -49,6 +50,27 @@ pristine.addValidator(
   inputHashtagElement,
   countHashtags,
   'Количество хэштэгов не более 5'
+);
+
+
+const checkMaskOfHashtag = (value) => {
+  if (value) {
+    const hashTags = value.split(' ');
+    const regex = /^#[A-Za-zA-Яа-яЁё0-9]{1,19}$/;
+    let isValid;
+    for (let i = 0; i < hashTags.length; i++) {
+      isValid = regex.test(hashTags[i]);
+    }
+    return isValid;
+  }
+};
+
+// checkMaskOfHashtag('asdf');
+
+pristine.addValidator(
+  inputHashtagElement,
+  checkMaskOfHashtag,
+  'Хэштэг должен начинаться с "#" и не включать остальные специальные символы'
 );
 
 
