@@ -1,13 +1,10 @@
-const formElement = document.querySelector('.img-upload__form');
-const inputHashtagElement = document.querySelector('.text__hashtags');
+const formElement = document.querySelector('#upload-select-image');
+const inputHashtagElement = formElement.querySelector('.text__hashtags');
 const inputDescription = formElement.querySelector('.text__description');
-// const unputFileElement = formElement.querySelector('.upload-file');
 
 const MAX_LENGTH_OF_COMMENT = 140;
 const MAX_AMOUNT_OF_TAGS = 5;
 
-
-// const pristine = new Pristine(formElement);
 
 const pristine = new Pristine(formElement, {
   classTo: 'form__item', // Элемент, на который будут добавляться классы
@@ -18,10 +15,6 @@ const pristine = new Pristine(formElement, {
   errorTextClass: 'form__error' // Класс для элемента с текстом ошибки
 });
 
-
-// const regexHashtag = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
-// /^#[A-Za-zA-Яа-яЁё0-9]{1,19}$/
-// const value = 'asdf asdf asf jk';
 
 const checkLongOfComment = (value) => value.length < MAX_LENGTH_OF_COMMENT;
 
@@ -93,6 +86,10 @@ pristine.addValidator(
 );
 
 formElement.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-  pristine.validate();
+  if (!pristine.validate()) {
+    evt.preventDefault();
+  }
 });
+
+
+export {inputHashtagElement, inputDescription, formElement};
