@@ -3,12 +3,9 @@ import {inputHashtagElement, inputDescriptionElement, formElement} from './input
 const inputUploadElement = formElement.querySelector('#upload-file');
 const formOverlayElement = formElement.querySelector('.img-upload__overlay');
 const buttonCloseElement = formElement.querySelector('#upload-cancel');
-// const previewImgElement = document.querySelector('.img-upload__preview');
+
 
 inputUploadElement.addEventListener('change', () => {
-
-  // const file = inputUploadElement.files[0];
-  // previewImgElement.src = URL.createObjectURL(file);
   formOverlayElement.classList.remove('hidden');
   document.querySelector('body').classList.add('modal-open');
 });
