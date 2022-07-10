@@ -30,7 +30,7 @@ const getIdentifiers = () => {
   return identifiers;
 };
 
-const getphotosWithData = () => {
+const getPhotosWithData = () => {
   const ids = getIdentifiers();
   const urlNumbers = getIdentifiers();
   const photosWithData = [];
@@ -48,4 +48,4 @@ const getphotosWithData = () => {
   return photosWithData;
 };
 
-export {getphotosWithData};
+export {getPhotosWithData};

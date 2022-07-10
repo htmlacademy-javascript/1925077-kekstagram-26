@@ -1,8 +1,8 @@
-import {getphotosWithData} from './get-photos-with-data.js';
+import {getPhotosWithData} from './get-photos-with-data.js';
 
 const pictureTemplate = document.querySelector('#picture').content.querySelector('.picture');
 const picturesContainer = document.querySelector('.pictures');
-const photosWithData = getphotosWithData();
+const photosWithData = getPhotosWithData();
 const fragment = document.createDocumentFragment();
 
 photosWithData.forEach((aPhotoWithData)=>{

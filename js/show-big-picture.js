@@ -1,8 +1,7 @@
 import {photosWithData} from './render-miniatures.js';
 
-
-const bigPictureElement = document.querySelector('.big-picture');
-
+const bodyElement = document.querySelector('body');
+const bigPictureElement = bodyElement.querySelector('.big-picture');
 
 const listOfCommentsElement = bigPictureElement.querySelector('.social__comments');
 const commentTemplateElement = bigPictureElement.querySelector('.social__comment');
@@ -56,7 +55,7 @@ const pluckLinksElements = () => {
   linksMiniImgContainer.addEventListener('click', (evt) => {
     if (evt.target.classList.contains('js-picture__img')) {
       onLinkMiniImgClick(+(evt.target.getAttribute('id')));
-      document.querySelector('body').classList.add('modal-open');
+      bodyElement.classList.add('modal-open');
     }
   });
 };
@@ -67,13 +66,13 @@ pluckLinksElements();
 //                      закрыть окно с большим фото
 buttonCloseElement.addEventListener('click', () => {
   bigPictureElement.classList.add('hidden');
-  document.querySelector('body').classList.remove('modal-open');
+  bodyElement.classList.remove('modal-open');
 });
 
 document.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') {
     bigPictureElement.classList.add('hidden');
-    document.querySelector('body').classList.remove('modal-open');
+    bodyElement.classList.remove('modal-open');
   }
 });
 //////////////////////////////////////////////////////////////////
