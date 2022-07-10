@@ -65,14 +65,32 @@ const checkMaskOfHashtag = (value) => {
   }
 };
 
-// checkMaskOfHashtag('asdf');
-
 pristine.addValidator(
   inputHashtagElement,
   checkMaskOfHashtag,
   'Хэштэг должен начинаться с "#" и не включать остальные специальные символы'
 );
 
+
+const checkTheSameHashtag = (value) => {
+  if (value) {
+    const hashTags = value.split(' ');
+    for (let i = 0; i < (hashTags.length); i++) {
+      for (let j = i + 1; j < (hashTags.length); j++) {
+        if (hashTags[i].toUpperCase() === hashTags[j].toUpperCase()) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+};
+
+pristine.addValidator(
+  inputHashtagElement,
+  checkTheSameHashtag,
+  'Хэштэги не могут быть одинаковы'
+);
 
 formElement.addEventListener('submit', (evt) => {
   evt.preventDefault();
