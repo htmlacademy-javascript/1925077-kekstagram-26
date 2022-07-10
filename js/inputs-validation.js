@@ -1,6 +1,6 @@
 const formElement = document.querySelector('#upload-select-image');
 const inputHashtagElement = formElement.querySelector('.text__hashtags');
-const inputDescription = formElement.querySelector('.text__description');
+const inputDescriptionElement = formElement.querySelector('.text__description');
 
 const MAX_LENGTH_OF_COMMENT = 140;
 const MAX_AMOUNT_OF_TAGS = 5;
@@ -19,7 +19,7 @@ const pristine = new Pristine(formElement, {
 const checkLongOfComment = (value) => value.length < MAX_LENGTH_OF_COMMENT;
 
 pristine.addValidator(
-  inputDescription,
+  inputDescriptionElement,
   checkLongOfComment,
   'Длина комментария не более 140 символов'
 );
@@ -92,4 +92,4 @@ formElement.addEventListener('submit', (evt) => {
 });
 
 
-export {inputHashtagElement, inputDescription, formElement};
+export {inputHashtagElement, inputDescriptionElement, formElement};

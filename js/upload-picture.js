@@ -1,4 +1,4 @@
-import {inputHashtagElement, inputDescription, formElement} from './inputs-validation.js';
+import {inputHashtagElement, inputDescriptionElement, formElement} from './inputs-validation.js';
 
 const inputUploadElement = formElement.querySelector('#upload-file');
 const formOverlayElement = formElement.querySelector('.img-upload__overlay');
@@ -19,18 +19,18 @@ buttonCloseElement.addEventListener('click', () => {
   formOverlayElement.classList.add('hidden');
   document.querySelector('body').classList.remove('modal-open');
   inputHashtagElement.value = '';
-  inputDescription.value = '';
+  inputDescriptionElement.value = '';
   formElement.value = '';
 });
 
 document.addEventListener('keydown', (evt) => {
   if (evt.key === 'Escape') {
-    if ((inputHashtagElement !== document.activeElement) && (inputDescription !== document.activeElement)) {
+    if ((inputHashtagElement !== document.activeElement) && (inputDescriptionElement !== document.activeElement)) {
       formOverlayElement.classList.add('hidden');
       document.querySelector('body').classList.remove('modal-open');
       inputHashtagElement.value = '';
-      inputUploadElement.file = '';
-      formElement.value = '';
+      inputDescriptionElement.value = '';
+      inputUploadElement.value = '';
     }
   }
 });
